@@ -15,7 +15,7 @@ import Register from './pages/Register';
 import Contacto from './pages/Contacto';
 
 function App() {
-  const [bebidas, setBebidas] = useState([])
+  const [bebidas, setBebidas] = useState([{nombre:'',precio:'',imagen:'',}])
   const [user, setUser] = useState({})
     return (
         <div className="footer-fix">

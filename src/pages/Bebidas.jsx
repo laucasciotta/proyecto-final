@@ -1,9 +1,18 @@
 import React from 'react'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Bebida from '../components/Bebida'
 
-export default function Bebidas() {
+
+const Bebidas = ({ bebidas }) => {
+    const mapBebidas = bebidas.map((bebida, i) => (<Bebida key={i} bebida={bebida} />));
+
     return (
-        <div>
-            bebidas
-        </div>
-    )
-}
+        <>
+            <h2>Bebidas</h2>
+            <div className="d-flex flex-wrap justify-content-between">{mapBebidas}</div>
+        </>
+    );
+};
+
+export default Bebidas;

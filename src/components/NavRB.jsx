@@ -5,12 +5,12 @@ export default function NavRB({ user }) {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">Rolling Beer </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to="/" exact activeClassName="text-white">
-              Memes
+         Bebidas 
             </Nav.Link>
 
             {/* {!tokenLocal.token && ( */}
@@ -45,15 +45,6 @@ export default function NavRB({ user }) {
               </Nav.Link>
             {/* )} */}
 
-           
-              <Nav.Link
-                as={NavLink}
-                to="/Register"
-                exact
-                activeClassName="text-white"
-              >
-                Registro
-              </Nav.Link>
       
 
          <Button >Logout</Button>
