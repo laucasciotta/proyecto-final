@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Card, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import axios from 'axios';
+import { guardarEnLocalStorage } from '../utils/localStorage';
 
 
 export default function Login({ requestUserData }) {
@@ -10,40 +11,38 @@ export default function Login({ requestUserData }) {
     const history = useHistory();
 
     const handleChange = (event) => {
-        // Extraemos y guardamos en variables, el nombre y el valor del input en el que escribió el usuario.
+
         const { value, name } = event.target;
-        // Declaramos un objeto que contiene una copia de las propiedades del state input,
-        // más el dato nuevo ingresado usando el name y value del elemento.
+    
         const newInput = { ...input, [name]: value };
         setInput(newInput);
     };
 
     const handleSubmit = async (event) => {
-        // event.preventDefault();
-        // event.stopPropagation();
-        // setValidated(true);
-        // const form = event.currentTarget;
+         event.preventDefault();
+         event.stopPropagation();
+         setValidated(true);
+         const form = event.currentTarget;
 
-        // // Chequea que los campos del formulario sean válidos.
-        // if (form.checkValidity() === true) {
-        //     try {
-        //         //Consultar a el back a la ruta /login, con el usuario y contraseña.
-        //         const response = await axios.post('http://localhost:4000/api/auth/login', input);
-        //         const { token, name } = response.data;
-        //         // guardarEnLocalStorage({ key: 'token', value: { token } });
-        //         alert('Bienvenido ' + name);
-        //         //El push redirecciona a la pantalla indicada en el parametro.
-        //         await requestUserData();
-        //         history.push('/admin');
-        //     } catch (error) {
-        //         console.error(error);
-        //         if (error.response.data) {
-        //             alert(JSON.stringify(error.response.data));
-        //         } else {
-        //             alert('Error de conexion');
-        //         }
-        //     }
-        // }
+        if (form.checkValidity() === true) {
+             try {
+             
+                const response = await axios.post('http://localhost:4000/api/auth/login', input);
+                 const { token, name } = response.data;
+                 guardarEnLocalStorage({ key: 'token', value: { token } });
+                 alert('Bienvenido ' + name);
+              
+                 await requestUserData();
+                 history.push('/admin');
+             } catch (error) {
+                 console.error(error);
+                 if (error.response?.data) {
+                     alert(JSON.stringify(error.response.data));
+                } else {
+                     alert('Error de conexion');
+                 }
+             }
+         }
     };
 
     return (
@@ -92,9 +91,7 @@ export default function Login({ requestUserData }) {
                                     </Button>
                                 </Row>
                                 <Row>
-                                    {/* <Link className="mx-auto mt-2" to="/register">
-                                        ¿No tiene una cuenta? Cree una aquí
-                                    </Link> */}
+                                   
                                 </Row>
                             </Form>
                         </Card.Body>
