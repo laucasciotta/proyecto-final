@@ -9,7 +9,7 @@ export default function Register() {
     const history = useHistory();
 
     const handleChange = (e) => {
-        console.log('input',input)
+        
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
         setInput(newInput);

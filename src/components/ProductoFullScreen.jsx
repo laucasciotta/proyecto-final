@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 
 
 export default function ProductoFullScreen(props) 
-{ console.log(props)
+{ 
     return (
         <Card className="card-bebida mx-auto" style={{width: '30rem' }}>
             <Card.Img variant="top" src={props.producto.imagen} />

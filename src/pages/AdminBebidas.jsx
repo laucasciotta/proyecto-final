@@ -33,6 +33,7 @@ export  function AdminBebidas(props) {
 
             const tokenLocal = leerDeLocalStorage('token') || {};
             const headers = { 'x-auth-token': tokenLocal.token };
+
             await axios.post('http://localhost:4000/api/bebidas', input, { headers });
 
             await props.getBebidas();
@@ -96,7 +97,7 @@ export  function AdminBebidas(props) {
                     </Button>
                 </Row>
             </Form>
-            <TablaBebidas actualizarBebidas={props.actualizarBebidas} bebidas={bebidas} />
+            <TablaBebidas getBebidas={props.getBebidas} bebidas={bebidas} />
 
         </>
 

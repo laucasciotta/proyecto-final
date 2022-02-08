@@ -12,10 +12,10 @@ export default function DetalleProducto() {
     useEffect(() => {
       
         const getBebida = async () => {
-            console.log(productoId)
+            
            
                 const response = await axios.get(`http://localhost:4000/api/bebidas/${productoId}`);
-                console.log(response)
+               
                 setProducto(response.data);
             
         };

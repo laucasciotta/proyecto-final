@@ -1,7 +1,7 @@
 import { Button, Form, InputGroup, Modal, Spinner } from "react-bootstrap";
 
 export default function ModalEditBebida(props) {
-    const { isModal, onClose, onSubmit, titulo, imagen, onChange, isLoading } = props;
+    const { isModal, onClose, onSubmit, nombre, imagen, handleChange, isLoading } = props;
 
     return (
         <Modal show={isModal} onHide={onClose}>
@@ -10,12 +10,12 @@ export default function ModalEditBebida(props) {
                         <Modal.Title>Editar Birra</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="p-5">
-                        <Form.Group controlId="titulo">
+                        <Form.Group controlId="nombre">
                             <Form.Label>Titulo</Form.Label>
                             <Form.Control
-                                name="titulo"
-                                value={titulo}
-                                onChange={(e) => onChange(e)}
+                                name="nombre"
+                                value={nombre}
+                                onChange={handleChange}
                                 required
                                 type="text"
                                 placeholder="Bebida"
@@ -27,7 +27,7 @@ export default function ModalEditBebida(props) {
                                 <Form.Control
                                     name="imagen"
                                     value={imagen}
-                                    onChange={(e) => onChange(e)}
+                                    onChange={handleChange}
                                     type="text"
                                     placeholder="http://bebida.jpg"
                                     aria-describedby="inputGroupPrepend"

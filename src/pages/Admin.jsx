@@ -11,7 +11,7 @@ export default function Admin({getBebidas,bebidas}) {
     return (
         <div>
           <Container>
-          {seccion === 'bebidas' &&  <AdminBebidas bebidas={bebidas} getBebidas={getBebidas} /> }
+          {seccion === 'bebidas' &&  <AdminBebidas bebidas={bebidas} getBebidas={getBebidas}  /> }
         
           </Container>
         </div>

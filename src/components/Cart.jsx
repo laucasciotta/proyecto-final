@@ -16,7 +16,7 @@ export default function Cart({ carrito, setCarrito }) {
     };
 
     let total = carrito.reduce((total, { product, cantidad }) => total + product.precio * cantidad, 0);
-console.log(carrito)
+
     return (
         <div className="container-fluid">
             <h2 className="text-center my-5">Tu carrito</h2>
