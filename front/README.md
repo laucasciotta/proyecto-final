@@ -1,0 +1,1 @@
+RollingBeer es una api para comprar cerveza rapido y faci,esta compuesta por un front de 7 paginas y 9 componentes. El proyecto es sencillo donde se puso en funcionamiento en primer lugar. la api esta cargada en Vercell 
